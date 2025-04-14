@@ -1,0 +1,5 @@
+describe("Load the Printess Greetings Card editor", async function() {
+    it("should wait for the editor to finish loading.", async function() {
+        await browser.url("https://www.printess.com/samples/buyer-side-bcui.html?name=Greeting%20Card%20New");
+    });
+});
