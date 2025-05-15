@@ -21,13 +21,12 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        // ToDo: define location for spec files here
-    ],
-    suites: {
-        loadGreetingsCards: [
+        [
             './printess.card.editor/suites/load.success.spec.js',
-        ]
-    },
+            './printess.card.editor/suites/bidi.shadow.dom.load.card.spec.js',
+            './printess.card.editor/suites/bidi.shadow.dom.upload.photo.spec.js',
+        ],
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -54,13 +53,23 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }, {
-        browserName: 'firefox'
-    }, {
-        browserName: 'MicrosoftEdge'
-    }],
+    capabilities: [
+        {
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                'excludeSwitches': ['enable-automation'],
+            },
+            // 'wdio:enforceWebDriverClassic': true,
+        },
+    /*
+        {
+            browserName: 'firefox'
+        },
+        {
+            browserName: 'MicrosoftEdge'
+        }
+    */
+    ],
 
     //
     // ===================
@@ -139,7 +148,8 @@ export const config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        bail: true,
     },
 
     //

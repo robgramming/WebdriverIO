@@ -10,6 +10,7 @@
     "wdio-video-reporter": "^6.1.1"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "printess": "wdio run ./printess.card.conf.js"
   }
 }
