@@ -57,6 +57,7 @@ export const config = {
         {
             browserName: 'chrome',
             'goog:chromeOptions': {
+                'args': ["--start-maximized"],
                 'excludeSwitches': ['enable-automation'],
             },
             // 'wdio:enforceWebDriverClassic': true,

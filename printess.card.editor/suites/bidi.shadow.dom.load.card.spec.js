@@ -4,10 +4,9 @@ describe("Using the BiDi protocol, select a card layout from the shadow DOM", as
         await expect(cardLayouts).toBeElementsArrayOfSize(10);
     });
 
-    it("should choose a random card layout", async function() {
+    it("should choose the first card layout", async function() {
         let cardLayouts = await $$("bc-select-layout-overlay img[loading=lazy]");
-        let randomCard = Math.floor(Math.random()*cardLayouts.length);
-        await cardLayouts[randomCard].click();
+        await cardLayouts[0].click();
     });
 
     it("should confirm the card editor toolbar loaded.", async function() {
