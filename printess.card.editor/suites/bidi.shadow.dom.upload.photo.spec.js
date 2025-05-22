@@ -16,12 +16,11 @@ describe("Using the BiDi protocol, upload photos to the card editor.", async fun
         await expect(uploadImages).toExist();
     });
 
-    it("should upload image to the card editor.", async function() {        
-        let filePath = path.join(import.meta.dirname, 'test_image0.png');
-        let uploadImages = $("input[type=file]");
-
+    it("should upload image to the card editor.", async function() { 
         await browser.execute("document.querySelector('printess-component').shadowRoot.querySelector('input[type=file]').style.display = 'block';");
-        await uploadImages.waitForDisplayed({ timeout: 5000 });
+                       
+        let filePath = path.join(import.meta.dirname, 'test_image0.png');
+        let uploadImages = await $("input[type=file]");
         
         console.log('filePath = '+filePath);
         await $(uploadImages).setValue(filePath);
